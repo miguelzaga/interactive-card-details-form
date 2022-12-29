@@ -1,0 +1,12 @@
+node_modules/
+.parcel-cache/
+dist/
+.env
+coverage/
+.vscode/
+*.sketch
+*.fig
+*.xd
+.DS_Store
+.prettierignore
+README-template.md
