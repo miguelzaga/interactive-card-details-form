@@ -1,7 +1,8 @@
 @use "./../01-abstracts/" as *;
 
-// Use this file to write styles on element selectors
-
 body {
-  background-color: azure;
+  background-color: $white;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 500;
+  color: $deep-violet;
 }
