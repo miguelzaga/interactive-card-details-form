@@ -10,22 +10,28 @@ function App() {
   var [completed, setCompleted] = useState(false);
   return (
     <div>
-      <main>
-        <div> {/* Cards */}
-          <picture>
-            <img src={bgCardFront} alt="Front of card" /> 
-            <img src={cardLogo} alt="Card logo" />
-          </picture>
-          <div>
+      <main className="main">
+        <div className="cards"> 
+    <div className="cards__front">
+          <img className="cards__front-bg" src={bgCardFront} alt="Front of card" /> 
+    <div className="cards__front-container">
+          <img className="cards__front-logo" src={cardLogo} alt="Card logo" />
+          <p className="cards__front-number">
             0000 0000 0000 0000
-            Jane Appleseed
-            00/00
-          </div>
+    </p>
+          <div className="cards__front-details">
+            <p className="cards__front-name">Jane Appleseed</p>
+            <p className="cards__front-date">00/00</p>
+    </div>
+    </div>
+    </div>
 
-          <img src={bgCardBack} alt="Back of card" /> 
-          <div>
+    <div className="cards__back">
+          <img className="cards__back" src={bgCardBack} alt="Back of card" /> 
+          <div className="cards__back-csv">
             000
           </div>
+    </div>
         </div>
 
       { completed ? (
@@ -64,7 +70,7 @@ function App() {
 
       </main>
       <picture className="background-image">
-        <source srcset={bgMainDesktop} media="(min-width: 1024px)" />
+        <source srcSet={bgMainDesktop} media="(min-width: 1024px)" />
         <img src={bgMainMobile} alt=""/> 
       </picture>
     </div>

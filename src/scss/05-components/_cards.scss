@@ -1,0 +1,67 @@
+@use "./../01-abstracts/" as *;
+
+.cards {
+  display: grid;
+  grid-template-columns: 57fr 229fr 57fr;
+  grid-template-rows: 94fr 63fr 94fr;
+  max-width: 541px;
+  margin: auto auto 48px;
+  color: $white;
+
+
+  &__front {
+    grid-row: 2/4;
+    grid-column: 1/3;
+    z-index: 1;
+    position: relative;
+  }
+
+  &__front-bg {
+    position: absolute;
+    z-index: -1;
+  }
+
+  &__front-container {
+    padding: 18px 19px 19px;
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-rows: 10fr auto 3fr;
+  }
+
+  &__front-logo {
+    max-width: 54px;
+  }
+
+  &__front-number {
+    font-size: rem(18px);
+    line-height: rem(23px);
+    letter-spacing: rem(2.2px);
+  }
+
+  &__front-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    font-size: rem( 9px);
+    line-height: rem( 11px);
+    letter-spacing: rem( 1.28571px);
+    text-transform: uppercase;
+  }
+
+  &__back {
+    grid-row: 1/3;
+    grid-column: 2/4;
+    z-index: 0;
+    position: relative;
+  }
+  
+  &__back-csv {
+    position: absolute;font-size: 9px;
+    line-height: rem(11px);
+    letter-spacing: rem(1.28571px);
+    top: calc(52% - 11px);
+    right: calc(18% - 20px);
+  }
+}
+
