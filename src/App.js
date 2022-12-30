@@ -42,29 +42,31 @@ function App() {
             <button onClick={() => setCompleted(false)}>Continue</button>
         </div>
       ) : (
-        <form>
-          <label>
+        <form className="form">
+          <label className="form__label">
             Cardholder Name
-            <input type="text" placeholder="e.g. Jane Appleseed" />
+            <input className="form__input" type="text" placeholder="e.g. Jane Appleseed" />
           </label>
 
-          <label>
+          <label className="form__label">
             Card Number
-            <input type="text" placeholder="e.g. 1234 5678 9123 0000" />
+            <input className="form__input" type="text" placeholder="e.g. 1234 5678 9123 0000" />
           </label>
 
-          <label>
+          <label className="form__label form__label--half">
             Exp. Date (MM/YY)
-            <input type="number" placeholder="MM" />
-            <input type="number" placeholder="YY" />
+            <div className="form__input--flex">         
+              <input className="form__input" type="number" placeholder="MM" />
+              <input className="form__input" type="number" placeholder="YY" />
+            </div>
           </label>
 
-          <label>
+          <label className="form__label form__label--half">
             CVC
-            <input type="number" placeholder="e.g. 123" />
+            <input className="form__input" type="number" placeholder="e.g. 123" />
           </label>
 
-          <button onClick={() => setCompleted(true)}type="submit">Confirm</button>
+          <button className="form__button" onClick={() => setCompleted(true)}type="submit">Confirm</button>
         </form>
       )}
 

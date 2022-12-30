@@ -1,0 +1,46 @@
+@use "./../01-abstracts/" as *;
+
+.form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 20px;
+  column-gap: 11px;
+  max-width: 381px;
+  margin: auto;
+
+  &__label {
+    text-transform: uppercase;
+    font-size: rem(12px);
+    line-height: rem(15px);
+    letter-spacing: rem(2px);
+    grid-column: span 2;
+
+    &--half {
+      grid-column: span 1;
+    }
+  }
+
+  &__input {
+    width: 100%;
+    margin-top: 9px;
+    padding: 11px 16px;
+    font-size: 18px;
+    line-height: 23px;
+    border: $light-grey 1px solid;
+    border-radius: 8px;
+
+    &::placeholder {
+      color: #{$deep-violet}40;
+    }
+
+    &--flex {
+      display: flex;
+      gap: 8px;
+    }
+  }
+
+  &__button {
+    margin-top: 8px;
+    grid-column: span 2;
+  }
+}
