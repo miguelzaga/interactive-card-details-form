@@ -63,7 +63,7 @@ function App() {
       )}
 
       </main>
-      <picture>
+      <picture className="background-image">
         <source srcset={bgMainDesktop} media="(min-width: 1024px)" />
         <img src={bgMainMobile} alt=""/> 
       </picture>

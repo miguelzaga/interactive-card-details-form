@@ -1,0 +1,12 @@
+@use "./../01-abstracts/" as *;
+
+.background-image {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: -1;
+  max-height: 240px;
+  overflow: hidden;
+}
+
