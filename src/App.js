@@ -66,7 +66,7 @@ function App() {
             <input className="form__input" type="number" placeholder="e.g. 123" />
           </label>
 
-          <button className="form__button" onClick={() => setCompleted(true)}type="submit">Confirm</button>
+          <button className="form__button button" onClick={() => setCompleted(true)}type="submit">Confirm</button>
         </form>
       )}
 

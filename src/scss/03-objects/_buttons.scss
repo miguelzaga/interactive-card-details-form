@@ -1,1 +1,11 @@
 @use "./../01-abstracts/" as *;
+
+.button {
+  color: $white;
+  background-color: $deep-violet;
+  font-size: rem(18px);
+  line-height: rem(23px);
+  border: none;
+  padding: 15px;
+  border-radius: 8px;
+}
