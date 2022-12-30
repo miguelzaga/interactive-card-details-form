@@ -4,6 +4,8 @@
   display: flex;
   flex-direction: column;
   text-align: center;
+  max-width: 381px;
+  margin: auto;
 
   &__icon {
     max-width: 80px;
@@ -28,5 +30,4 @@
   &__button {
     margin-bottom: calc(82px - 45px);
   }
-
 }

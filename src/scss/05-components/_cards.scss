@@ -5,8 +5,10 @@
   grid-template-columns: 57fr 229fr 57fr;
   grid-template-rows: 94fr 63fr 94fr;
   max-width: 541px;
-  margin: auto auto 48px;
   color: $white;
+  @include breakpoint($lg){
+    flex-grow: 1;
+  }
 
 
   &__front {
