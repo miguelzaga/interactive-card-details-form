@@ -1,0 +1,32 @@
+@use "./../01-abstracts/" as *;
+
+.message {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+
+  &__icon {
+    max-width: 80px;
+    margin: auto auto 35px;
+  }
+
+  &__title {
+    font-size: rem(28px);
+    line-height: rem(36px);
+    letter-spacing: rem(3.42222px);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  &__text {
+    font-size: rem(18px);
+    line-height: rem(23px);
+    color: $purplish-grey; 
+    margin-bottom: 48px;
+  }
+
+  &__button {
+    margin-bottom: calc(82px - 45px);
+  }
+
+}

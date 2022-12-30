@@ -35,11 +35,11 @@ function App() {
         </div>
 
       { completed ? (
-        <div>
-            <img src={iconComplete} alt="Complete icon" /> 
-            <h2>Thank you!</h2>
-            <p>We've added your card details</p>
-            <button onClick={() => setCompleted(false)}>Continue</button>
+        <div className="message">
+            <img className="message__icon" src={iconComplete} alt="Complete icon" /> 
+            <h2 className="message__title">Thank you!</h2>
+            <p className="message__text">We've added your card details</p>
+            <button className="message__button button" onClick={() => setCompleted(false)}>Continue</button>
         </div>
       ) : (
         <form className="form">
