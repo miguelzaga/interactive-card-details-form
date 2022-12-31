@@ -9,10 +9,14 @@
   max-height: 350px;
   overflow: hidden;
 
-  @include breakpoint($lg){
+  @include breakpoint($lg) {
     right: unset;
-    max-height: unset;
-    clip-path: polygon(0 0, calc(100% * 483/1440) 0, calc(100% * 483/1440) 100%, 0 100%);
+    max-height: 100vh;
+    clip-path: polygon(
+      0 0,
+      calc(100% * 483 / 1440) 0,
+      calc(100% * 483 / 1440) 100%,
+      0 100%
+    );
   }
 }
-

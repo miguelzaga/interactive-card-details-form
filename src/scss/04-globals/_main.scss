@@ -7,11 +7,11 @@
   align-items: center;
   gap: 48px;
   min-height: 100vh;
-  max-width: calc(1049px + 32px);
   margin: auto;
-  @include breakpoint($lg){
+  @include breakpoint($lg) {
+    max-width: calc(1049px + 64px);
     flex-direction: row;
-    padding: 100px 16px;
+    padding: 100px 32px;
     gap: 127px;
   }
 }

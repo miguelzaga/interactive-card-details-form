@@ -6,16 +6,21 @@
   grid-template-rows: 94fr 63fr 94fr;
   max-width: 541px;
   color: $white;
-  @include breakpoint($lg){
+  @include breakpoint($lg) {
     flex-grow: 1;
+    grid-template-columns: 94fr 352fr 94fr;
+    grid-template-rows: 1fr 1fr;
+    row-gap: 37px;
   }
-
 
   &__front {
     grid-row: 2/4;
     grid-column: 1/3;
     z-index: 1;
     position: relative;
+    @include breakpoint($lg) {
+      grid-row: 1/2;
+    }
   }
 
   &__front-bg {
@@ -28,27 +33,43 @@
     height: 100%;
     width: 100%;
     display: grid;
-    grid-template-rows: 10fr auto 3fr;
+    grid-template-rows: 8fr auto 3fr;
+    @include breakpoint(calc($lg + 100px)) {
+      padding: 28px 32px 27px;
+    }
   }
 
   &__front-logo {
     max-width: 54px;
+    @include breakpoint(calc($lg + 100px)) {
+      max-width: 84px;
+    }
   }
 
   &__front-number {
     font-size: rem(18px);
     line-height: rem(23px);
     letter-spacing: rem(2.2px);
+    @include breakpoint(calc($lg + 100px)) {
+      font-size: rem(28px);
+      line-height: rem(36px);
+      letter-spacing: rem(3.42222px);
+    }
   }
 
   &__front-details {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    font-size: rem( 9px);
-    line-height: rem( 11px);
-    letter-spacing: rem( 1.28571px);
+    font-size: rem(9px);
+    line-height: rem(11px);
+    letter-spacing: rem(1.28571px);
     text-transform: uppercase;
+    @include breakpoint(calc($lg + 100px)) {
+      font-size: rem(14px);
+      line-height: rem(18px);
+      letter-spacing: rem(2px);
+    }
   }
 
   &__back {
@@ -56,14 +77,24 @@
     grid-column: 2/4;
     z-index: 0;
     position: relative;
+    @include breakpoint($lg) {
+      grid-row: 2/3;
+    }
   }
-  
+
   &__back-csv {
-    position: absolute;font-size: 9px;
+    position: absolute;
+    font-size: 9px;
     line-height: rem(11px);
     letter-spacing: rem(1.28571px);
     top: calc(52% - 11px);
     right: calc(18% - 20px);
+    @include breakpoint(calc($lg + 100px)) {
+      font-size: rem(14px);
+      line-height: rem(18px);
+      letter-spacing: rem(2px);
+      top: calc(52% - 18px);
+      right: calc(18% - 32px);
+    }
   }
 }
-
