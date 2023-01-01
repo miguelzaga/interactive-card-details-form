@@ -7,3 +7,15 @@ body {
   color: $deep-violet;
   position: relative;
 }
+
+input {
+  color: $deep-violet;
+}
+
+button {
+  cursor: pointer;
+  transition: .2s ease-in-out;
+  &:active {
+    transform: scale(0.9);
+  }
+}
