@@ -21,6 +21,19 @@
     &--half {
       grid-column: span 1;
     }
+
+    &--error {
+      &::after {
+        content: "Error";
+        color: $red;
+        font-size: rem(12px);
+        line-height: rem(15px);
+        text-transform: none;
+        margin-top: 8px;
+        display: block;
+        letter-spacing: 0;
+      }
+    }
   }
 
   &__input {
@@ -32,18 +45,28 @@
     line-height: 23px;
     border: $light-grey 1px solid;
     border-radius: 8px;
+    outline: none;
 
     &::placeholder {
       color: #{$deep-violet}40;
     }
 
-    &--flex {
+    &:focus {
+      border-color: #6348FE;
+    }
+
+    &--error {
+      border-color: $red;
+    }
+
+    &--date {
       display: flex;
       gap: 8px;
       @include breakpoint($lg){
         gap: 10px;
       }
     }
+
   }
 
   &__button {

@@ -56,10 +56,10 @@ function App() {
           </div>
         ) : (
           <form className="form">
-            <label className="form__label">
+            <label className="form__label form__label--error">
               Cardholder Name
               <input
-                className="form__input"
+                className="form__input form__input--error"
                 type="text"
                 placeholder="e.g. Jane Appleseed"
               />
@@ -76,7 +76,7 @@ function App() {
 
             <label className="form__label form__label--half">
               Exp. Date (MM/YY)
-              <div className="form__input--flex">
+              <div className="form__input--date">
                 <input className="form__input" type="number" placeholder="MM" />
                 <input className="form__input" type="number" placeholder="YY" />
               </div>
