@@ -6,6 +6,7 @@ import iconComplete from "./images/icon-complete.svg";
 import bgMainMobile from "./images/bg-main-mobile.png";
 import bgMainDesktop from "./images/bg-main-desktop.png";
 import onChangeInputHandler from "./js/onChangeInputHandler.js"
+import formatCardNumber from "./js/formatCardNumber.js"
 
 function App() {
   var [completed, setCompleted] = useState(false);
@@ -14,7 +15,6 @@ function App() {
   var [month, setMonth] = useState('00');
   var [year, setYear] = useState('00');
   var [cvc, setCvc] = useState('000');
-
 
   return (
     <div>
@@ -78,7 +78,22 @@ function App() {
             <label className="form__label">
               Card Number
               <input
-                onChange={onChangeInputHandler(setNumber, '0000 0000 0000 0000')}
+                onChange={
+                  (event) => {
+                    let value = event.currentTarget.value;
+                    if (value) {
+                      let valueFormatted = formatCardNumber(value);
+                      setNumber(valueFormatted)
+                    } else {
+                      setNumber('0000 0000 0000 0000');
+                    }
+                  }}
+                onBlur={
+                  (event) => {
+                    let value = event.currentTarget.value;
+                    event.currentTarget.value = formatCardNumber(value);
+                  }
+                }
                 className="form__input"
                 type="text"
                 placeholder="e.g. 1234 5678 9123 0000"
@@ -100,7 +115,7 @@ function App() {
             <label className="form__label form__label--half">
               CVC
               <input
-                  onChange={onChangeInputHandler(setCvc, '000')}
+                onChange={onChangeInputHandler(setCvc, '000')}
                 className="form__input"
                 required
                 pattern="\d\d\d"
@@ -112,7 +127,10 @@ function App() {
 
             <button
               className="form__button button"
-              onClick={() => setCompleted(false)}
+              onClick={(event) => {
+                event.preventDefault()
+                // setCompleted(true)
+              }}
               type="submit"
             >
               Confirm
