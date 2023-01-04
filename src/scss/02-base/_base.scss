@@ -14,7 +14,7 @@ input {
 
 button {
   cursor: pointer;
-  transition: .2s ease-in-out;
+  transition: 0.2s ease-in-out;
   &:active {
     transform: scale(0.9);
   }

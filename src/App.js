@@ -1,20 +1,26 @@
 import { useState } from "react";
-import bgCardFront from "./images/bg-card-front.png";
-import bgCardBack from "./images/bg-card-back.png";
-import cardLogo from "./images/card-logo.svg";
-import iconComplete from "./images/icon-complete.svg";
-import bgMainMobile from "./images/bg-main-mobile.png";
-import bgMainDesktop from "./images/bg-main-desktop.png";
-import onChangeInputHandler from "./js/onChangeInputHandler.js"
-import formatCardNumber from "./js/formatCardNumber.js"
+import {
+  bgCardFront,
+  bgCardBack,
+  cardLogo,
+  iconComplete,
+  bgMainMobile,
+  bgMainDesktop,
+} from "./images";
+import {
+  formatCardNumber,
+  onChangeInputHandler,
+  removeErrorState,
+  validateInput,
+} from "./js";
 
 function App() {
   var [completed, setCompleted] = useState(false);
-  var [name, setName] = useState('Jane Appleseed');
-  var [number, setNumber] = useState('0000 0000 0000 0000');
-  var [month, setMonth] = useState('00');
-  var [year, setYear] = useState('00');
-  var [cvc, setCvc] = useState('000');
+  var [name, setName] = useState("Jane Appleseed");
+  var [number, setNumber] = useState("0000 0000 0000 0000");
+  var [month, setMonth] = useState("00");
+  var [year, setYear] = useState("00");
+  var [cvc, setCvc] = useState("000");
 
   return (
     <div>
@@ -35,7 +41,9 @@ function App() {
               <p className="cards__front-number">{number}</p>
               <div className="cards__front-details">
                 <p className="cards__front-name">{name}</p>
-                <p className="cards__front-date">{month}/{year}</p>
+                <p className="cards__front-date">
+                  {month}/{year}
+                </p>
               </div>
             </div>
           </div>
@@ -67,7 +75,8 @@ function App() {
             <label className="form__label form__label--error">
               Cardholder Name
               <input
-                onChange={onChangeInputHandler(setName, 'Jane Appleseed')}
+                onFocus={(event) => removeErrorState(event)}
+                onChange={onChangeInputHandler(setName, "Jane Appleseed")}
                 className="form__input form__input--error"
                 type="text"
                 required
@@ -78,24 +87,23 @@ function App() {
             <label className="form__label">
               Card Number
               <input
-                onChange={
-                  (event) => {
-                    let value = event.currentTarget.value;
-                    if (value) {
-                      let valueFormatted = formatCardNumber(value);
-                      setNumber(valueFormatted)
-                    } else {
-                      setNumber('0000 0000 0000 0000');
-                    }
-                  }}
-                onBlur={
-                  (event) => {
-                    let value = event.currentTarget.value;
-                    event.currentTarget.value = formatCardNumber(value);
+                onFocus={(event) => removeErrorState(event)}
+                onChange={(event) => {
+                  let value = event.currentTarget.value;
+                  if (value) {
+                    let valueFormatted = formatCardNumber(value);
+                    setNumber(valueFormatted);
+                  } else {
+                    setNumber("0000 0000 0000 0000");
                   }
-                }
+                }}
+                onBlur={(event) => {
+                  console.log(validateInput);
+                  let value = event.currentTarget.value;
+                  event.currentTarget.value = formatCardNumber(value);
+                }}
                 required
-          pattern="(\d{4} ){4}"
+                pattern="(\d{4} ){4}"
                 className="form__input"
                 type="text"
                 inputMode="numeric"
@@ -107,18 +115,30 @@ function App() {
               Exp. Date (MM/YY)
               <div className="form__input--date">
                 <input
-                  onChange={onChangeInputHandler(setMonth, '00')}
-                  className="form__input" required min="1" max="12" type="number" placeholder="MM" />
+                  onChange={onChangeInputHandler(setMonth, "00")}
+                  className="form__input"
+                  required
+                  min="1"
+                  max="12"
+                  type="number"
+                  placeholder="MM"
+                />
                 <input
-                  onChange={onChangeInputHandler(setYear, '00')}
-                  className="form__input" required min="0" max="99" type="number" placeholder="YY" />
+                  onChange={onChangeInputHandler(setYear, "00")}
+                  className="form__input"
+                  required
+                  min="0"
+                  max="99"
+                  type="number"
+                  placeholder="YY"
+                />
               </div>
             </label>
 
             <label className="form__label form__label--half">
               CVC
               <input
-                onChange={onChangeInputHandler(setCvc, '000')}
+                onChange={onChangeInputHandler(setCvc, "000")}
                 className="form__input"
                 required
                 pattern="\d\d\d"
@@ -132,7 +152,7 @@ function App() {
               className="form__button button"
               onClick={(event) => {
                 // event.preventDefault()
-                setCompleted(false)
+                setCompleted(false);
               }}
               type="submit"
             >

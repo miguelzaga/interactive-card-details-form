@@ -6,7 +6,7 @@
   row-gap: 20px;
   column-gap: 11px;
   max-width: 381px;
-  @include breakpoint($lg){
+  @include breakpoint($lg) {
     row-gap: 26px;
     column-gap: 20px;
   }
@@ -52,7 +52,7 @@
     }
 
     &:focus {
-      border-color: #6348FE;
+      border-color: #6348fe;
     }
 
     &--error {
@@ -62,17 +62,16 @@
     &--date {
       display: flex;
       gap: 8px;
-      @include breakpoint($lg){
+      @include breakpoint($lg) {
         gap: 10px;
       }
     }
-
   }
 
   &__button {
     margin-top: calc(28px - 20px);
     grid-column: span 2;
-    @include breakpoint($lg){
+    @include breakpoint($lg) {
       margin-top: calc(40px - 26px);
     }
   }
