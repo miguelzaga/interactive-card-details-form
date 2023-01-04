@@ -94,8 +94,11 @@ function App() {
                     event.currentTarget.value = formatCardNumber(value);
                   }
                 }
+                required
+          pattern="(\d{4} ){4}"
                 className="form__input"
                 type="text"
+                inputMode="numeric"
                 placeholder="e.g. 1234 5678 9123 0000"
               />
             </label>
@@ -128,8 +131,8 @@ function App() {
             <button
               className="form__button button"
               onClick={(event) => {
-                event.preventDefault()
-                // setCompleted(true)
+                // event.preventDefault()
+                setCompleted(false)
               }}
               type="submit"
             >
