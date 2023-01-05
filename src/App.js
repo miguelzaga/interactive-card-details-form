@@ -11,6 +11,7 @@ import {
   formatCardNumber,
   onChangeInputHandler,
   removeErrorState,
+  addErrorState,
   validateInput,
 } from "./js";
 
@@ -77,6 +78,13 @@ function App() {
               <input
                 onFocus={(event) => removeErrorState(event)}
                 onChange={onChangeInputHandler(setName, "Jane Appleseed")}
+                onBlur={
+                  (event) => {
+                    if (!event.currentTarget.checkValidity()) {
+                      addErrorState(event);
+                    }
+                  }
+                }
                 className="form__input form__input--error"
                 type="text"
                 required
@@ -98,7 +106,9 @@ function App() {
                   }
                 }}
                 onBlur={(event) => {
-                  console.log(validateInput);
+                  if (!event.currentTarget.checkValidity()) {
+                    addErrorState(event);
+                  }
                   let value = event.currentTarget.value;
                   event.currentTarget.value = formatCardNumber(value);
                 }}
