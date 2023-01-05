@@ -18,20 +18,23 @@
     letter-spacing: rem(2px);
     grid-column: span 2;
 
+    &-alert {
+      display: none;
+      color: $red;
+      font-size: rem(12px);
+      line-height: rem(15px);
+      text-transform: none;
+      margin-top: 8px;
+      letter-spacing: 0;
+    }
+
     &--half {
       grid-column: span 1;
     }
 
     &--error {
-      &::after {
-        content: "Error";
-        color: $red;
-        font-size: rem(12px);
-        line-height: rem(15px);
-        text-transform: none;
-        margin-top: 8px;
+      & .form__label-alert {
         display: block;
-        letter-spacing: 0;
       }
     }
   }
@@ -62,6 +65,11 @@
     &--date {
       display: flex;
       gap: 8px;
+      &--error {
+        & .form__label-alert {
+          display: block;
+        }
+      }
       @include breakpoint($lg) {
         gap: 10px;
       }

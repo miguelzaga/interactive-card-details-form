@@ -7,13 +7,7 @@ import {
   bgMainMobile,
   bgMainDesktop,
 } from "./images";
-import {
-  formatCardNumber,
-  onChangeInputHandler,
-  removeErrorState,
-  addErrorState,
-  validateInput,
-} from "./js";
+import { formatCardNumber, onChangeInputHandler, setErrorState } from "./js";
 
 function App() {
   var [completed, setCompleted] = useState(false);
@@ -22,7 +16,6 @@ function App() {
   var [month, setMonth] = useState("00");
   var [year, setYear] = useState("00");
   var [cvc, setCvc] = useState("000");
-
   return (
     <div>
       <main className="main">
@@ -72,30 +65,39 @@ function App() {
             </button>
           </div>
         ) : (
-          <form className="form">
-            <label className="form__label form__label--error">
+          <form
+            onSubmit={function validateForm(event) {
+              var formElement = event.currentTarget;
+
+              event.preventDefault();
+
+              if (formElement.checkValidity()) {
+                setCompleted(true);
+              } else {
+                let inputList = formElement.querySelectorAll("input");
+                inputList.forEach(function validateInput(inputElement) {
+                  setErrorState(inputElement);
+                });
+              }
+            }}
+            noValidate
+            className="form"
+          >
+            <label className="form__label">
               Cardholder Name
               <input
-                onFocus={(event) => removeErrorState(event)}
                 onChange={onChangeInputHandler(setName, "Jane Appleseed")}
-                onBlur={
-                  (event) => {
-                    if (!event.currentTarget.checkValidity()) {
-                      addErrorState(event);
-                    }
-                  }
-                }
-                className="form__input form__input--error"
+                className="form__input"
                 type="text"
                 required
                 placeholder="e.g. Jane Appleseed"
               />
+              <p className="form__label-alert alert-js">Error</p>
             </label>
 
             <label className="form__label">
               Card Number
               <input
-                onFocus={(event) => removeErrorState(event)}
                 onChange={(event) => {
                   let value = event.currentTarget.value;
                   if (value) {
@@ -106,11 +108,9 @@ function App() {
                   }
                 }}
                 onBlur={(event) => {
-                  if (!event.currentTarget.checkValidity()) {
-                    addErrorState(event);
-                  }
-                  let value = event.currentTarget.value;
-                  event.currentTarget.value = formatCardNumber(value);
+                  event.currentTarget.value = formatCardNumber(
+                    event.currentTarget.value
+                  );
                 }}
                 required
                 pattern="(\d{4} ){4}"
@@ -119,6 +119,7 @@ function App() {
                 inputMode="numeric"
                 placeholder="e.g. 1234 5678 9123 0000"
               />
+              <p className="form__label-alert alert-js">Error</p>
             </label>
 
             <label className="form__label form__label--half">
@@ -143,6 +144,7 @@ function App() {
                   placeholder="YY"
                 />
               </div>
+              <p className="form__label-alert alert-js">Error</p>
             </label>
 
             <label className="form__label form__label--half">
@@ -151,21 +153,15 @@ function App() {
                 onChange={onChangeInputHandler(setCvc, "000")}
                 className="form__input"
                 required
-                pattern="\d\d\d"
+                pattern="\d{3}"
                 type="text"
                 inputMode="numeric"
                 placeholder="e.g. 123"
               />
+              <p className="form__label-alert alert-js">Error</p>
             </label>
 
-            <button
-              className="form__button button"
-              onClick={(event) => {
-                // event.preventDefault()
-                setCompleted(false);
-              }}
-              type="submit"
-            >
+            <button className="form__button button" type="submit">
               Confirm
             </button>
           </form>
