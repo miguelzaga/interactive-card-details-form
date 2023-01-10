@@ -46,7 +46,7 @@ Users should be able to:
 - Flexbox
 - CSS Grid
 - Mobile-first workflow
-- [Next.js](https://nextjs.org/) - React framework
+- React
 
 ### What I learned
 
@@ -63,7 +63,7 @@ I think I want to start using Typescript in my projects. Also I want to organize
 ### Useful resources
 
 - [clip-path](https://developer.mozilla.org/en-US/docs/Web/CSS/clip-path) - I tried something different for the background image, works pretty well.
-- [<input type="number">](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/number#using_number_inputs) - I used the attribute inputemode the CVC validation.
+- [\<input type="number"\>](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/number#using_number_inputs) - I used the attribute inputemode the CVC validation.
 - [How to use index.js file(Properly)](https://dev.to/fahadaminshovon/-how-to-use-indexjs-fileproperly-302f) - I refactor the images directory and js files, it looks cleaner.
 
 ## Author
